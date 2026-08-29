@@ -428,45 +428,82 @@
 
 <section id="education" class="py-24 sm:py-28">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-12">Education</h2>
 
-    <div class="reveal card p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 max-w-2xl">
-      <div class="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center" style="background:var(--bg-alt)">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--pink-deep)" stroke-width="1.6">
-          <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke-linejoin="round"/>
-          <path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke-linejoin="round"/>
-          <path d="M22 8v6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <h3 class="font-display text-xl font-semibold">Universitas Brawijaya</h3>
-        <p class="text-ink-soft mt-1">Information Technology Education</p>
-        <p class="font-mono text-xs text-pink-deep mt-2">2025 — Present</p>
-      </div>
-      
-       <div>
-        <h3 class="font-display text-xl font-semibold">State Senior High School 1 Sumberpucung</h3>
-        <p class="text-ink-soft mt-1">Sciences</p>
-        <p class="font-mono text-xs text-pink-deep mt-2">2022 — 2025</p>
-      </div>
-      
-       <div>
-        <h3 class="font-display text-xl font-semibold">State Junior High School 1 Kromengan</h3>
-        <p class="font-mono text-xs text-pink-deep mt-2">2019 - 2022</p>
-      </div>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-12">
+      Education
+    </h2>
 
-       <div>
-        <h3 class="font-display text-xl font-semibold">State Elementary School 3 Ngadirejo</h3>
-        <p class="font-mono text-xs text-pink-deep mt-2">2016 - 2019</p>
+    <div class="reveal card p-8 sm:p-10 max-w-3xl">
 
-        <h3 class="font-display text-xl font-semibold">State Elementary School 1 Ngadirejo</h3>
-        <p class="font-mono text-xs text-pink-deep mt-2">2013 - 2016</p>
-      </div>
+      <!-- University -->
+      <div class="flex gap-6 pb-8 border-b" style="border-color: var(--border);">
+        <div
+          class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
+          style="background:var(--bg-alt)"
+        >
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
+               stroke="var(--pink-deep)" stroke-width="1.6">
+            <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke-linejoin="round"/>
+            <path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"
+                  stroke-linejoin="round"/>
+            <path d="M22 8v6" stroke-linecap="round"/>
+          </svg>
+        </div>
 
         <div>
-        <h3 class="font-display text-xl font-semibold">PGRI 2 Kindergarten Kromengan</h3>
-        <p class="font-mono text-xs text-pink-deep mt-2">2011 - 2013</p>
+          <h3 class="font-display text-xl font-semibold">
+            Universitas Brawijaya
+          </h3>
+          <p class="text-ink-soft mt-1">
+            Information Technology Education
+          </p>
+          <p class="font-mono text-xs text-pink-deep mt-2">
+            2025 — Present
+          </p>
+        </div>
       </div>
+
+      <!-- Senior High School -->
+      <div class="flex gap-6 py-8 border-b" style="border-color: var(--border);">
+        <div
+          class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
+          style="background:var(--bg-alt)"
+        >
+          <span class="text-xl">🎓</span>
+        </div>
+
+        <div>
+          <h3 class="font-display text-xl font-semibold">
+            State Senior High School 1 Sumberpucung
+          </h3>
+          <p class="text-ink-soft mt-1">
+            Sciences
+          </p>
+          <p class="font-mono text-xs text-pink-deep mt-2">
+            2022 — 2025
+          </p>
+        </div>
+      </div>
+
+      <!-- Junior High School -->
+      <div class="flex gap-6 pt-8">
+        <div
+          class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
+          style="background:var(--bg-alt)"
+        >
+          <span class="text-xl">📚</span>
+        </div>
+
+        <div>
+          <h3 class="font-display text-xl font-semibold">
+            State Junior High School 1 Kromengan
+          </h3>
+          <p class="font-mono text-xs text-pink-deep mt-2">
+            2019 — 2022
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -524,6 +561,8 @@
         <input type="hidden" name="_subject" value="New message from Bunga Anggraeni's portfolio">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_replyto" id="replyto">
+
         <div>
           <label for="name" class="block text-xs font-mono text-ink-soft mb-1.5">Name</label>
           <input id="name" name="name" type="text" required placeholder="Your name"
@@ -531,7 +570,7 @@
         </div>
         <div>
           <label for="email" class="block text-xs font-mono text-ink-soft mb-1.5">Email</label>
-          <input id="email" name="email" type="email" required placeholder="you@email.com"
+          <input id="email" name="email" type="email" required placeholder="bunga.anggraeni366@email.com"
             class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none" />
         </div>
         <div>
