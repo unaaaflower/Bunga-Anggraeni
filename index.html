@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bunga Anggraeni — Information Technology Education Student</title>
+<meta name="description" content="Portfolio of Bunga Anggraeni, Information Technology Education student at Universitas Brawijaya. Programming, web development, AI, UI/UX & public speaking." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind (Play CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          bg: 'var(--bg)',
+          'bg-alt': 'var(--bg-alt)',
+          ink: 'var(--ink)',
+          'ink-soft': 'var(--ink-soft)',
+          pink: 'var(--pink)',
+          'pink-deep': 'var(--pink-deep)',
+          navy: 'var(--navy)',
+          line: 'var(--line)',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  :root{
+    --bg: #FFFCFA;
+    --bg-alt: #FDF1F4;
+    --ink: #14162B;
+    --ink-soft: #5B5C74;
+    --pink: #F2A6BC;
+    --pink-deep: #E5738F;
+    --navy: #1B1F3B;
+    --line: #EFE0E5;
+    --ring: rgba(229,115,143,0.35);
+  }
+  html.dark{
+    --bg: #12142A;
+    --bg-alt: #191C36;
+    --ink: #FBF4F6;
+    --ink-soft: #B9B7D0;
+    --pink: #F2A6BC;
+    --pink-deep: #F5B7C8;
+    --navy: #0E1024;
+    --line: #2A2C4C;
+    --ring: rgba(242,166,188,0.3);
+  }
+
+  *{ border-color: var(--line); }
+  html{ scroll-behavior: smooth; }
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: background-color .4s ease, color .4s ease;
+  }
+  .font-display{ font-family: 'Fraunces', serif; }
+  .font-mono{ font-family: 'JetBrains Mono', monospace; }
+
+  ::selection{ background: var(--pink); color: var(--navy); }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--pink-deep);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* eyebrow tag signature */
+  .eyebrow{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--pink-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: .4em;
+  }
+  .eyebrow .bracket{ opacity: .55; }
+
+  /* scroll reveal */
+  .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
+    .float, .float-slow, .spin-slow, .blink{ animation: none !important; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* floating chips */
+  @keyframes floaty{
+    0%,100%{ transform: translateY(0) rotate(0deg); }
+    50%{ transform: translateY(-10px) rotate(3deg); }
+  }
+  .float{ animation: floaty 5s ease-in-out infinite; }
+  .float-slow{ animation: floaty 7.5s ease-in-out infinite; }
+
+  @keyframes spin-slow{ to{ transform: rotate(360deg); } }
+  .spin-slow{ animation: spin-slow 26s linear infinite; }
+
+  @keyframes blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
+  .blink{ animation: blink 1s step-start infinite; }
+
+  /* glass */
+  .glass{
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+
+  /* card */
+  .card{
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+  }
+  .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 22px 40px -20px rgba(20,22,43,0.18);
+    border-color: var(--pink);
+  }
+  html.dark .card:hover{ box-shadow: 0 22px 40px -18px rgba(0,0,0,0.55); }
+
+  /* hero blob avatar */
+  .blob{
+    border-radius: 62% 38% 55% 45% / 55% 45% 62% 38%;
+    animation: blobmorph 12s ease-in-out infinite;
+    background: linear-gradient(150deg, var(--pink) 0%, var(--pink-deep) 55%, var(--navy) 130%);
+  }
+  @keyframes blobmorph{
+    0%,100%{ border-radius: 62% 38% 55% 45% / 55% 45% 62% 38%; }
+    50%{ border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  }
+
+  /* dotted ring */
+  .ring-dashed{
+    border: 2px dashed var(--pink);
+    border-radius: 9999px;
+    opacity: .55;
+  }
+
+  /* timeline */
+  .timeline-line{ background: linear-gradient(var(--pink), var(--pink-deep)); }
+  .timeline-dot{
+    box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px var(--pink);
+  }
+
+  /* scrapbook tilt */
+  .tilt-1{ transform: rotate(-2.5deg); }
+  .tilt-2{ transform: rotate(2deg); }
+  .tilt-3{ transform: rotate(-1.5deg); }
+  .tilt-4{ transform: rotate(2.5deg); }
+  .tilt-5{ transform: rotate(-2deg); }
+  .tilt-1:hover,.tilt-2:hover,.tilt-3:hover,.tilt-4:hover,.tilt-5:hover{ transform: rotate(0deg) scale(1.04); }
+
+  /* subtle cursor-follow spotlight (hero only) */
+  #hero-spotlight{
+    background: radial-gradient(600px circle at var(--mx,50%) var(--my,30%), var(--ring), transparent 60%);
+    transition: background .15s ease;
+  }
+
+  textarea{ resize: vertical; }
+
+  ::-webkit-scrollbar{ width: 10px; }
+  ::-webkit-scrollbar-track{ background: var(--bg); }
+  ::-webkit-scrollbar-thumb{ background: var(--pink); border-radius: 8px; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ================= NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 glass border-b">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+    <a href="#home" class="font-display italic text-2xl font-semibold tracking-tight">BA<span class="text-pink-deep">.</span></a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+      <a href="#home" class="nav-link hover:text-pink-deep transition-colors">Home</a>
+      <a href="#about" class="nav-link hover:text-pink-deep transition-colors">About</a>
+      <a href="#skills" class="nav-link hover:text-pink-deep transition-colors">Skills</a>
+      <a href="#achievements" class="nav-link hover:text-pink-deep transition-colors">Experience</a>
+      <a href="#contact" class="nav-link hover:text-pink-deep transition-colors">Contact</a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="w-10 h-10 rounded-full border flex items-center justify-center hover:border-pink-deep transition-colors">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-navy text-white dark:bg-pink dark:text-navy hover:opacity-90 transition-opacity">
+        Contact Me
+      </a>
+      <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" class="md:hidden w-10 h-10 rounded-full border flex items-center justify-center">
+        <span id="menu-icon">☰</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden glass border-t">
+    <div class="px-5 py-4 flex flex-col gap-3 text-sm font-medium">
+      <a href="#home" class="nav-link py-1">Home</a>
+      <a href="#about" class="nav-link py-1">About</a>
+      <a href="#skills" class="nav-link py-1">Skills</a>
+      <a href="#achievements" class="nav-link py-1">Experience</a>
+      <a href="#education" class="nav-link py-1">Education</a>
+      <a href="#contact" class="nav-link py-1">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden">
+  <div id="hero-spotlight" class="pointer-events-none absolute inset-0"></div>
+
+  <!-- gradient blobs -->
+  <div class="pointer-events-none absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-40 float-slow" style="background:var(--pink)"></div>
+  <div class="pointer-events-none absolute top-40 -right-16 w-64 h-64 rounded-full blur-3xl opacity-30 float" style="background:var(--navy)"></div>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 relative grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <p class="eyebrow mb-5"><span class="bracket">&lt;</span>hero<span class="bracket">&gt;</span></p>
+
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.08] tracking-tight">
+        Turning Ideas Into
+        <span class="italic text-pink-deep">Technology</span> That Matters.
+      </h1>
+
+      <p class="mt-6 text-base sm:text-lg text-ink-soft max-w-md">
+        Hi, I'm <span class="font-semibold text-ink">Bunga Anggraeni</span> — an
+        Information Technology Education student exploring programming, web
+        development, AI, UI/UX, and the art of public speaking.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#projects" class="px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
+          View My Projects
+        </a>
+        <a href="#contact" class="px-6 py-3 rounded-full border border-ink/20 text-sm font-semibold hover:border-pink-deep hover:text-pink-deep transition-colors">
+          Contact Me
+        </a>
+      </div>
+
+      <div class="mt-10 inline-flex items-center gap-2 px-4 py-2 rounded-lg border font-mono text-xs text-ink-soft" style="background:var(--bg-alt)">
+        <span class="text-pink-deep">//</span> currently learning, building &amp; exploring<span class="blink">_</span>
+      </div>
+    </div>
+
+    <div class="reveal relative flex justify-center md:justify-end" style="transition-delay:.1s">
+      <div class="relative w-64 h-64 sm:w-80 sm:h-80">
+        <div class="absolute -inset-6 ring-dashed spin-slow"></div>
+        <div class="blob w-full h-full flex items-center justify-center shadow-xl">
+          <span class="font-display italic text-white text-6xl sm:text-7xl">BA</span>
+        </div>
+
+        <div class="float absolute -top-4 -left-8 w-14 h-14 rounded-2xl card flex items-center justify-center text-2xl shadow-md">💻</div>
+        <div class="float-slow absolute top-6 -right-10 w-14 h-14 rounded-2xl card flex items-center justify-center text-2xl shadow-md">🤖</div>
+        <div class="float absolute -bottom-6 left-2 w-14 h-14 rounded-2xl card flex items-center justify-center text-2xl shadow-md" style="animation-delay:1.2s">🎤</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 sm:py-28" style="background:var(--bg-alt)">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>about<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-10">About Me</h2>
+
+    <div class="grid md:grid-cols-5 gap-10 items-start">
+      <p class="reveal md:col-span-3 text-base sm:text-lg leading-relaxed text-ink-soft">
+        I'm an Information Technology Education student who's curious about how
+        technology can solve real, everyday problems. I enjoy learning to program,
+        building websites, exploring the world of AI, and developing ideas that
+        create genuine value for the people around me. Outside the screen, I love
+        turning what I learn into something I can share — whether that's a project,
+        a presentation, or a conversation.
+      </p>
+
+      <div class="reveal md:col-span-2 grid grid-cols-2 gap-3" style="transition-delay:.05s">
+        <div class="card p-5">
+          <p class="text-2xl">🎓</p>
+          <p class="mt-2 text-sm font-semibold">IT Education</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-2xl">💻</p>
+          <p class="mt-2 text-sm font-semibold">Programming &amp; Web Dev</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-2xl">🤖</p>
+          <p class="mt-2 text-sm font-semibold">AI &amp; Technology</p>
+        </div>
+        <div class="card p-5">
+          <p class="text-2xl">🎤</p>
+          <p class="mt-2 text-sm font-semibold">Public Speaking</p>
+        </div>
+        <div class="card p-5 col-span-2">
+          <p class="text-2xl">🎸</p>
+          <p class="mt-2 text-sm font-semibold">Music</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-24 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>skills<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-2">Skills</h2>
+    <p class="reveal text-ink-soft mb-12 max-w-xl">
+      No inflated percentages here — just an honest sense of where each skill
+      stands right now.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Programming -->
+      <div class="reveal card p-7">
+        <h3 class="font-display text-xl font-semibold mb-5">Programming</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center justify-between">
+            <span class="font-medium">Java</span>
+            <span class="level-tag" data-level="intermediate"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Web Development -->
+      <div class="reveal card p-7" style="transition-delay:.05s">
+        <h3 class="font-display text-xl font-semibold mb-5">Web Development</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center justify-between">
+            <span class="font-medium">HTML</span>
+            <span class="level-tag" data-level="intermediate"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="font-medium">CSS</span>
+            <span class="level-tag" data-level="intermediate"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="font-medium">JavaScript</span>
+            <span class="level-tag" data-level="learning"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Creative & Communication -->
+      <div class="reveal card p-7" style="transition-delay:.1s">
+        <h3 class="font-display text-xl font-semibold mb-5">Creative &amp; Communication</h3>
+        <ul class="space-y-3">
+          <li class="flex items-center justify-between">
+            <span class="font-medium">Public Speaking</span>
+            <span class="level-tag" data-level="intermediate"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="font-medium">Presentation</span>
+            <span class="level-tag" data-level="familiar"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="font-medium">UI/UX</span>
+            <span class="level-tag" data-level="learning"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="font-medium">Content Creation</span>
+            <span class="level-tag" data-level="familiar"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal mt-8 flex flex-wrap gap-5 text-xs font-mono text-ink-soft">
+      <span class="inline-flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:var(--ink-soft)"></span>Familiar</span>
+      <span class="inline-flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full" style="background:var(--pink-deep)"></span>Intermediate</span>
+      <span class="inline-flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full animate-pulse" style="background:var(--pink)"></span>Currently Learning</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ACHIEVEMENTS / EXPERIENCE ================= -->
+<section id="achievements" class="py-24 sm:py-28" style="background:var(--bg-alt)">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>experience<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-14">Achievements &amp; Experiences</h2>
+
+    <div class="relative pl-10">
+      <div class="timeline-line absolute left-[7px] top-1 bottom-1 w-[2px]"></div>
+
+      <div class="space-y-12">
+        <div class="reveal relative">
+          <span class="timeline-dot absolute -left-[34px] top-1.5 w-3 h-3 rounded-full" style="background:var(--pink-deep)"></span>
+          <p class="font-mono text-xs text-pink-deep mb-1">2023</p>
+          <h3 class="font-display text-lg font-semibold">National Mathematics Competition</h3>
+          <p class="text-ink-soft text-sm mt-1">Competed at the national level, sharpening analytical and problem-solving skills under pressure.</p>
+        </div>
+
+        <div class="reveal relative" style="transition-delay:.05s">
+          <span class="timeline-dot absolute -left-[34px] top-1.5 w-3 h-3 rounded-full" style="background:var(--pink-deep)"></span>
+          <p class="font-mono text-xs text-pink-deep mb-1">2023</p>
+          <h3 class="font-display text-lg font-semibold">Debate Competition</h3>
+          <p class="text-ink-soft text-sm mt-1">Practiced structured argumentation and quick thinking through competitive debate.</p>
+        </div>
+
+        <div class="reveal relative" style="transition-delay:.1s">
+          <span class="timeline-dot absolute -left-[34px] top-1.5 w-3 h-3 rounded-full" style="background:var(--pink-deep)"></span>
+          <p class="font-mono text-xs text-pink-deep mb-1">2024</p>
+          <h3 class="font-display text-lg font-semibold">Student Organization &amp; Event Committee</h3>
+          <p class="text-ink-soft text-sm mt-1">Took part in organizational and committee work, building teamwork and leadership experience.</p>
+        </div>
+
+        <div class="reveal relative" style="transition-delay:.15s">
+          <span class="timeline-dot absolute -left-[34px] top-1.5 w-3 h-3 rounded-full" style="background:var(--pink-deep)"></span>
+          <p class="font-mono text-xs text-pink-deep mb-1">2024 – 2025</p>
+          <h3 class="font-display text-lg font-semibold">Technology Project Development</h3>
+          <p class="text-ink-soft text-sm mt-1">Built and iterated on small technology projects, from idea to working prototype.</p>
+        </div>
+
+        <div class="reveal relative" style="transition-delay:.2s">
+          <span class="timeline-dot absolute -left-[34px] top-1.5 w-3 h-3 rounded-full" style="background:var(--pink-deep)"></span>
+          <p class="font-mono text-xs text-pink-deep mb-1">2025</p>
+          <h3 class="font-display text-lg font-semibold">Public Speaking Engagements</h3>
+          <p class="text-ink-soft text-sm mt-1">Presented in front of academic and public audiences, growing confidence and delivery.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal mt-10 text-xs text-ink-soft font-mono">// swap in your real dates, titles &amp; results here</p>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="py-24 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>education<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-12">Education</h2>
+
+    <div class="reveal card p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 max-w-2xl">
+      <div class="w-16 h-16 shrink-0 rounded-2xl flex items-center justify-center" style="background:var(--bg-alt)">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--pink-deep)" stroke-width="1.6">
+          <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke-linejoin="round"/>
+          <path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke-linejoin="round"/>
+          <path d="M22 8v6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-display text-xl font-semibold">Universitas Brawijaya</h3>
+        <p class="text-ink-soft mt-1">Information Technology Education</p>
+        <p class="font-mono text-xs text-pink-deep mt-2">2025 — Present</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEYOND THE CODE ================= -->
+<section class="py-24 sm:py-28 overflow-hidden" style="background:var(--bg-alt)">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>beyond<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl italic font-semibold mt-3 mb-14">Beyond The Code</h2>
+
+    <div class="flex flex-wrap gap-6 justify-center">
+      <div class="reveal tilt-1 card px-6 py-8 w-36 text-center shadow-sm">
+        <p class="text-3xl mb-2">🎸</p><p class="text-sm font-semibold">Music</p>
+      </div>
+      <div class="reveal tilt-2 card px-6 py-8 w-36 text-center shadow-sm" style="transition-delay:.05s">
+        <p class="text-3xl mb-2">🎤</p><p class="text-sm font-semibold">Public Speaking</p>
+      </div>
+      <div class="reveal tilt-3 card px-6 py-8 w-36 text-center shadow-sm" style="transition-delay:.1s">
+        <p class="text-3xl mb-2">📚</p><p class="text-sm font-semibold">Learning</p>
+      </div>
+      <div class="reveal tilt-4 card px-6 py-8 w-36 text-center shadow-sm" style="transition-delay:.15s">
+        <p class="text-3xl mb-2">💻</p><p class="text-sm font-semibold">Technology</p>
+      </div>
+      <div class="reveal tilt-5 card px-6 py-8 w-36 text-center shadow-sm" style="transition-delay:.2s">
+        <p class="text-3xl mb-2">🎨</p><p class="text-sm font-semibold">Creative Projects</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <p class="eyebrow reveal"><span class="bracket">&lt;</span>contact<span class="bracket">&gt;</span></p>
+    <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-3">Let's Connect</h2>
+    <p class="reveal text-ink-soft max-w-lg mb-12">
+      Have an idea, project, or opportunity? Let's create something meaningful together.
+    </p>
+
+    <div class="grid md:grid-cols-5 gap-10">
+      <div class="reveal md:col-span-2">
+        <div class="flex flex-col gap-3">
+          <a href="#" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
+            <span class="text-lg">📸</span> Instagram
+          </a>
+          <a href="#" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
+            <span class="text-lg">💼</span> LinkedIn
+          </a>
+          <a href="#" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
+            <span class="text-lg">🐙</span> GitHub
+          </a>
+          <a href="mailto:bunga.anggraeni@example.com" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
+            <span class="text-lg">✉️</span> bunga.anggraeni@example.com
+          </a>
+        </div>
+      </div>
+
+      <form id="contact-form" class="reveal md:col-span-3 card p-7 space-y-4" style="transition-delay:.05s">
+        <div>
+          <label for="name" class="block text-xs font-mono text-ink-soft mb-1.5">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your name"
+            class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none" />
+        </div>
+        <div>
+          <label for="email" class="block text-xs font-mono text-ink-soft mb-1.5">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@email.com"
+            class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none" />
+        </div>
+        <div>
+          <label for="message" class="block text-xs font-mono text-ink-soft mb-1.5">Message</label>
+          <textarea id="message" name="message" required rows="4" placeholder="Tell me about your idea or project..."
+            class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none"></textarea>
+        </div>
+        <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
+          Send Message
+        </button>
+        <p id="form-status" class="text-xs font-mono text-pink-deep hidden" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t py-10" style="background:var(--bg-alt)">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-ink-soft">
+    <a href="#home" class="font-display italic text-lg font-semibold text-ink">BA<span class="text-pink-deep">.</span></a>
+    <p class="font-mono text-xs text-center">© 2026 Bunga Anggraeni. Built with curiosity &amp; code.</p>
+    <div class="flex gap-4 text-lg">
+      <a href="#" aria-label="Instagram">📸</a>
+      <a href="#" aria-label="LinkedIn">💼</a>
+      <a href="#" aria-label="GitHub">🐙</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---------- theme toggle (in-memory only) ----------
+  const root = document.documentElement;
+  const themeIcon = document.getElementById('theme-icon');
+  const themeBtn = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (prefersDark) { root.classList.add('dark'); themeIcon.textContent = '☀️'; }
+
+  themeBtn.addEventListener('click', () => {
+    const isDark = root.classList.toggle('dark');
+    themeIcon.textContent = isDark ? '☀️' : '🌙';
+  });
+
+  // ---------- mobile menu ----------
+  const menuBtn = document.getElementById('menu-toggle');
+  const menuIcon = document.getElementById('menu-icon');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden');
+    menuBtn.setAttribute('aria-expanded', String(!open));
+    menuIcon.textContent = open ? '☰' : '✕';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuIcon.textContent = '☰';
+  }));
+
+  // ---------- scroll reveal ----------
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const revealEls = document.querySelectorAll('.reveal');
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => io.observe(el));
+  }
+
+  // ---------- subtle cursor spotlight (hero only) ----------
+  const hero = document.getElementById('home');
+  const spotlight = document.getElementById('hero-spotlight');
+  if (!reduceMotion && hero && spotlight) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      spotlight.style.setProperty('--mx', x + '%');
+      spotlight.style.setProperty('--my', y + '%');
+    });
+  }
+
+  // ---------- skill level tags ----------
+  const levelMeta = {
+    familiar: { label: 'Familiar', color: 'var(--ink-soft)', pulse: false },
+    intermediate: { label: 'Intermediate', color: 'var(--pink-deep)', pulse: false },
+    learning: { label: 'Currently Learning', color: 'var(--pink)', pulse: true },
+  };
+  document.querySelectorAll('.level-tag').forEach(tag => {
+    const meta = levelMeta[tag.dataset.level];
+    if (!meta) return;
+    tag.classList.add('inline-flex','items-center','gap-1.5','px-3','py-1','rounded-full','text-xs','font-mono','border');
+    tag.innerHTML = `<span class="w-2 h-2 rounded-full ${meta.pulse ? 'animate-pulse' : ''}" style="background:${meta.color}"></span>${meta.label}`;
+  });
+
+  // ---------- contact form (front-end only) ----------
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    status.textContent = '// message ready — connect a backend or email service to send it';
+    status.classList.remove('hidden');
+    form.reset();
+  });
+</script>
+</body>
+</html>
