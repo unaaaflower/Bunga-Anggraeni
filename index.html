@@ -73,14 +73,12 @@
 
   ::selection{ background: var(--pink); color: var(--navy); }
 
-  /* focus visibility */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
     outline: 2px solid var(--pink-deep);
     outline-offset: 3px;
     border-radius: 6px;
   }
 
-  /* eyebrow tag signature */
   .eyebrow{
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.72rem;
@@ -91,7 +89,6 @@
     gap: .4em;
   }
 
-  /* scroll reveal */
   .reveal{
     opacity: 0;
     transform: translateY(18px);
@@ -105,7 +102,6 @@
     html{ scroll-behavior: auto; }
   }
 
-  /* floating chips */
   @keyframes floaty{
     0%,100%{ transform: translateY(0) rotate(0deg); }
     50%{ transform: translateY(-10px) rotate(3deg); }
@@ -119,14 +115,12 @@
   @keyframes blink{ 0%,49%{opacity:1} 50%,100%{opacity:0} }
   .blink{ animation: blink 1s step-start infinite; }
 
-  /* glass */
   .glass{
     background: color-mix(in srgb, var(--bg) 72%, transparent);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
   }
 
-  /* card */
   .card{
     background: var(--bg);
     border: 1px solid var(--line);
@@ -140,7 +134,6 @@
   }
   html.dark .card:hover{ box-shadow: 0 22px 40px -18px rgba(0,0,0,0.55); }
 
-  /* hero blob avatar */
   .blob{
     border-radius: 62% 38% 55% 45% / 55% 45% 62% 38%;
     animation: blobmorph 12s ease-in-out infinite;
@@ -151,20 +144,17 @@
     50%{ border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
   }
 
-  /* dotted ring */
   .ring-dashed{
     border: 2px dashed var(--pink);
     border-radius: 9999px;
     opacity: .55;
   }
 
-  /* timeline */
   .timeline-line{ background: linear-gradient(var(--pink), var(--pink-deep)); }
   .timeline-dot{
     box-shadow: 0 0 0 5px var(--bg), 0 0 0 6px var(--pink);
   }
 
-  /* scrapbook tilt */
   .tilt-1{ transform: rotate(-2.5deg); }
   .tilt-2{ transform: rotate(2deg); }
   .tilt-3{ transform: rotate(-1.5deg); }
@@ -172,7 +162,6 @@
   .tilt-5{ transform: rotate(-2deg); }
   .tilt-1:hover,.tilt-2:hover,.tilt-3:hover,.tilt-4:hover,.tilt-5:hover{ transform: rotate(0deg) scale(1.04); }
 
-  /* subtle cursor-follow spotlight (hero only) */
   #hero-spotlight{
     background: radial-gradient(600px circle at var(--mx,50%) var(--my,30%), var(--ring), transparent 60%);
     transition: background .15s ease;
@@ -183,6 +172,11 @@
   ::-webkit-scrollbar{ width: 10px; }
   ::-webkit-scrollbar-track{ background: var(--bg); }
   ::-webkit-scrollbar-thumb{ background: var(--pink); border-radius: 8px; }
+
+  /* form status styling */
+  #form-status.ok{ color: #2fa36b !important; }
+  #form-status.err{ color: #d15353 !important; }
+  button[disabled]{ opacity: .6; cursor: not-allowed; }
 </style>
 </head>
 
@@ -315,7 +309,7 @@
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-2">Skills</h2>
     <p class="reveal text-ink-soft mb-12 max-w-xl">
-     Skills I’m learning, practicing, and continuously growing through real projects.
+     Skills I'm learning, practicing, and continuously growing through real projects.
     </p>
 
     <div class="grid md:grid-cols-3 gap-6">
@@ -435,7 +429,6 @@
 
     <div class="reveal card p-8 sm:p-10 max-w-3xl">
 
-      <!-- University -->
       <div class="flex gap-6 pb-8 border-b" style="border-color: var(--border);">
         <div
           class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
@@ -463,7 +456,6 @@
         </div>
       </div>
 
-      <!-- Senior High School -->
       <div class="flex gap-6 py-8 border-b" style="border-color: var(--border);">
         <div
           class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
@@ -485,7 +477,6 @@
         </div>
       </div>
 
-      <!-- Junior High School -->
       <div class="flex gap-6 pt-8">
         <div
           class="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center"
@@ -557,10 +548,10 @@
         </div>
       </div>
 
-      <form id="contact-form" action="https://formsubmit.co/bunga.anggraeni366@gmail.com" method="POST" class="reveal md:col-span-3 card p-7 space-y-4" style="transition-delay:.05s">
+      <form id="contact-form" action="https://formsubmit.co/ajax/bunga.anggraeni366@gmail.com" method="POST" class="reveal md:col-span-3 card p-7 space-y-4" style="transition-delay:.05s">
         <input type="hidden" name="_subject" value="New message from Bunga Anggraeni's portfolio">
-        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_replyto" id="replyto">
 
         <div>
@@ -570,7 +561,7 @@
         </div>
         <div>
           <label for="email" class="block text-xs font-mono text-ink-soft mb-1.5">Email</label>
-          <input id="email" name="email" type="email" required placeholder="bunga.anggraeni366@email.com"
+          <input id="email" name="email" type="email" required placeholder="you@email.com"
             class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none" />
         </div>
         <div>
@@ -578,10 +569,10 @@
           <textarea id="message" name="message" required rows="4" placeholder="Tell me about your idea or project..."
             class="w-full rounded-xl border bg-transparent px-4 py-3 text-sm focus:outline-none"></textarea>
         </div>
-        <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
+        <button type="submit" id="submit-btn" class="w-full sm:w-auto px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
           Send Message
         </button>
-        <p id="form-status" class="text-xs font-mono text-pink-deep hidden" role="status"></p>
+        <p id="form-status" class="text-xs font-mono hidden" role="status"></p>
       </form>
     </div>
   </div>
@@ -666,12 +657,45 @@
     tag.innerHTML = `<span class="w-2 h-2 rounded-full ${meta.pulse ? 'animate-pulse' : ''}" style="background:${meta.color}"></span>${meta.label}`;
   });
 
+  // ---- Contact form: submit via fetch so the page never navigates away,
+  // and the user actually sees whether the message went through. ----
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
+  const submitBtn = document.getElementById('submit-btn');
+  const emailInput = document.getElementById('email');
+  const replytoInput = document.getElementById('replyto');
 
-  form.addEventListener('submit', () => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // keep the reply-to field in sync with whatever the sender typed
+    replytoInput.value = emailInput.value;
+
+    status.classList.remove('hidden', 'ok', 'err');
     status.textContent = 'Sending your message…';
-    status.classList.remove('hidden');
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        status.textContent = 'Thanks! Your message has been sent — I\'ll get back to you soon.';
+        status.classList.add('ok');
+        form.reset();
+      } else {
+        status.textContent = 'Something went wrong sending your message. Please try emailing me directly instead.';
+        status.classList.add('err');
+      }
+    } catch (err) {
+      status.textContent = 'Network error — please try again or email me directly.';
+      status.classList.add('err');
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 </script>
 </body>
