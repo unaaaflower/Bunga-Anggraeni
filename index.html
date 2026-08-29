@@ -6,12 +6,10 @@
 <title>Bunga Anggraeni — Information Technology Education Student</title>
 <meta name="description" content="Portfolio of Bunga Anggraeni, Information Technology Education student at Universitas Brawijaya. Programming, web development, AI, UI/UX & public speaking." />
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-<!-- Tailwind (Play CDN) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -92,7 +90,6 @@
     align-items: center;
     gap: .4em;
   }
-  .eyebrow .bracket{ opacity: .55; }
 
   /* scroll reveal */
   .reveal{
@@ -191,7 +188,6 @@
 
 <body class="antialiased">
 
-<!-- ================= NAVBAR ================= -->
 <header id="navbar" class="fixed top-0 inset-x-0 z-50 glass border-b">
   <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
     <a href="#home" class="font-display italic text-2xl font-semibold tracking-tight">BA<span class="text-pink-deep">.</span></a>
@@ -217,7 +213,6 @@
     </div>
   </nav>
 
-  <!-- mobile menu -->
   <div id="mobile-menu" class="md:hidden hidden glass border-t">
     <div class="px-5 py-4 flex flex-col gap-3 text-sm font-medium">
       <a href="#home" class="nav-link py-1">Home</a>
@@ -230,17 +225,15 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section id="home" class="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden">
   <div id="hero-spotlight" class="pointer-events-none absolute inset-0"></div>
 
-  <!-- gradient blobs -->
   <div class="pointer-events-none absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-40 float-slow" style="background:var(--pink)"></div>
   <div class="pointer-events-none absolute top-40 -right-16 w-64 h-64 rounded-full blur-3xl opacity-30 float" style="background:var(--navy)"></div>
 
   <div class="max-w-6xl mx-auto px-5 sm:px-8 relative grid md:grid-cols-2 gap-16 items-center">
     <div class="reveal">
-      <p class="eyebrow mb-5"><span class="bracket">&lt;</span>hero<span class="bracket">&gt;</span></p>
+      <p class="eyebrow mb-5">hero</p>
 
       <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.08] tracking-tight">
         Turning Ideas Into
@@ -254,8 +247,8 @@
       </p>
 
       <div class="mt-9 flex flex-wrap items-center gap-4">
-        <a href="#projects" class="px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
-          View My Projects
+        <a href="#about" class="px-6 py-3 rounded-full bg-navy text-white dark:bg-pink dark:text-navy text-sm font-semibold hover:-translate-y-0.5 hover:shadow-lg transition-all">
+          Explore My Journey
         </a>
         <a href="#contact" class="px-6 py-3 rounded-full border border-ink/20 text-sm font-semibold hover:border-pink-deep hover:text-pink-deep transition-colors">
           Contact Me
@@ -263,7 +256,7 @@
       </div>
 
       <div class="mt-10 inline-flex items-center gap-2 px-4 py-2 rounded-lg border font-mono text-xs text-ink-soft" style="background:var(--bg-alt)">
-        <span class="text-pink-deep">//</span> currently learning, building &amp; exploring<span class="blink">_</span>
+        currently learning, building &amp; exploring<span class="blink">_</span>
       </div>
     </div>
 
@@ -282,10 +275,9 @@
   </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
 <section id="about" class="py-24 sm:py-28" style="background:var(--bg-alt)">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>about<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">about</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-10">About Me</h2>
 
     <div class="grid md:grid-cols-5 gap-10 items-start">
@@ -324,10 +316,9 @@
   </div>
 </section>
 
-<!-- ================= SKILLS ================= -->
 <section id="skills" class="py-24 sm:py-28">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>skills<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">skills</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-2">Skills</h2>
     <p class="reveal text-ink-soft mb-12 max-w-xl">
       No inflated percentages here — just an honest sense of where each skill
@@ -335,7 +326,6 @@
     </p>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Programming -->
       <div class="reveal card p-7">
         <h3 class="font-display text-xl font-semibold mb-5">Programming</h3>
         <ul class="space-y-3">
@@ -346,7 +336,6 @@
         </ul>
       </div>
 
-      <!-- Web Development -->
       <div class="reveal card p-7" style="transition-delay:.05s">
         <h3 class="font-display text-xl font-semibold mb-5">Web Development</h3>
         <ul class="space-y-3">
@@ -365,7 +354,6 @@
         </ul>
       </div>
 
-      <!-- Creative & Communication -->
       <div class="reveal card p-7" style="transition-delay:.1s">
         <h3 class="font-display text-xl font-semibold mb-5">Creative &amp; Communication</h3>
         <ul class="space-y-3">
@@ -397,10 +385,9 @@
   </div>
 </section>
 
-<!-- ================= ACHIEVEMENTS / EXPERIENCE ================= -->
 <section id="achievements" class="py-24 sm:py-28" style="background:var(--bg-alt)">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>experience<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">experience</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-14">Achievements &amp; Experiences</h2>
 
     <div class="relative pl-10">
@@ -448,10 +435,9 @@
   </div>
 </section>
 
-<!-- ================= EDUCATION ================= -->
 <section id="education" class="py-24 sm:py-28">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>education<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">education</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-12">Education</h2>
 
     <div class="reveal card p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 max-w-2xl">
@@ -471,10 +457,9 @@
   </div>
 </section>
 
-<!-- ================= BEYOND THE CODE ================= -->
 <section class="py-24 sm:py-28 overflow-hidden" style="background:var(--bg-alt)">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>beyond<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">beyond</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl italic font-semibold mt-3 mb-14">Beyond The Code</h2>
 
     <div class="flex flex-wrap gap-6 justify-center">
@@ -497,10 +482,9 @@
   </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
 <section id="contact" class="py-24 sm:py-28">
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
-    <p class="eyebrow reveal"><span class="bracket">&lt;</span>contact<span class="bracket">&gt;</span></p>
+    <p class="eyebrow reveal">contact</p>
     <h2 class="reveal font-display text-3xl sm:text-4xl font-semibold mt-3 mb-3">Let's Connect</h2>
     <p class="reveal text-ink-soft max-w-lg mb-12">
       Have an idea, project, or opportunity? Let's create something meaningful together.
@@ -518,13 +502,16 @@
           <a href="#" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
             <span class="text-lg">🐙</span> GitHub
           </a>
-          <a href="mailto:bunga.anggraeni@example.com" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
-            <span class="text-lg">✉️</span> bunga.anggraeni@example.com
+          <a href="mailto:bunga.anggraeni366@gmail.com" class="card px-5 py-4 flex items-center gap-3 text-sm font-medium">
+            <span class="text-lg">✉️</span> bunga.anggraeni366@gmail.com
           </a>
         </div>
       </div>
 
-      <form id="contact-form" class="reveal md:col-span-3 card p-7 space-y-4" style="transition-delay:.05s">
+      <form id="contact-form" action="https://formsubmit.co/bunga.anggraeni366@gmail.com" method="POST" class="reveal md:col-span-3 card p-7 space-y-4" style="transition-delay:.05s">
+        <input type="hidden" name="_subject" value="New message from Bunga Anggraeni's portfolio">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div>
           <label for="name" class="block text-xs font-mono text-ink-soft mb-1.5">Name</label>
           <input id="name" name="name" type="text" required placeholder="Your name"
@@ -549,21 +536,20 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
 <footer class="border-t py-10" style="background:var(--bg-alt)">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-ink-soft">
     <a href="#home" class="font-display italic text-lg font-semibold text-ink">BA<span class="text-pink-deep">.</span></a>
     <p class="font-mono text-xs text-center">© 2026 Bunga Anggraeni. Built with curiosity &amp; code.</p>
     <div class="flex gap-4 text-lg">
-      <a href="#" aria-label="Instagram">📸</a>
-      <a href="#" aria-label="LinkedIn">💼</a>
-      <a href="#" aria-label="GitHub">🐙</a>
+      <a href="https://www.instagram.com/bungangiee/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+      <a href="https://www.linkedin.com/in/bunga-arum-anggraeni-748586368/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">💼</a>
+      <a href="https://github.com/unaaaflower" target="_blank" rel="noopener noreferrer" aria-label="GitHub">🐙</a>
     </div>
   </div>
 </footer>
 
 <script>
-  // ---------- theme toggle (in-memory only) ----------
+
   const root = document.documentElement;
   const themeIcon = document.getElementById('theme-icon');
   const themeBtn = document.getElementById('theme-toggle');
@@ -575,7 +561,6 @@
     themeIcon.textContent = isDark ? '☀️' : '🌙';
   });
 
-  // ---------- mobile menu ----------
   const menuBtn = document.getElementById('menu-toggle');
   const menuIcon = document.getElementById('menu-icon');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -590,7 +575,6 @@
     menuIcon.textContent = '☰';
   }));
 
-  // ---------- scroll reveal ----------
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const revealEls = document.querySelectorAll('.reveal');
   if (reduceMotion) {
@@ -607,7 +591,6 @@
     revealEls.forEach(el => io.observe(el));
   }
 
-  // ---------- subtle cursor spotlight (hero only) ----------
   const hero = document.getElementById('home');
   const spotlight = document.getElementById('hero-spotlight');
   if (!reduceMotion && hero && spotlight) {
@@ -620,7 +603,6 @@
     });
   }
 
-  // ---------- skill level tags ----------
   const levelMeta = {
     familiar: { label: 'Familiar', color: 'var(--ink-soft)', pulse: false },
     intermediate: { label: 'Intermediate', color: 'var(--pink-deep)', pulse: false },
@@ -633,14 +615,12 @@
     tag.innerHTML = `<span class="w-2 h-2 rounded-full ${meta.pulse ? 'animate-pulse' : ''}" style="background:${meta.color}"></span>${meta.label}`;
   });
 
-  // ---------- contact form (front-end only) ----------
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    status.textContent = '// message ready — connect a backend or email service to send it';
+
+  form.addEventListener('submit', () => {
+    status.textContent = 'Sending your message…';
     status.classList.remove('hidden');
-    form.reset();
   });
 </script>
 </body>
